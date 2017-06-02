@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MiniBrowser" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="URL" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NkY-Vf-IrA">
+                                <rect key="frame" x="0.0" y="58" width="375" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="go"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="6AB-PF-786"/>
+                                </connections>
+                            </textField>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tQt-Yo-CC7">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="L6B-eE-ylx"/>
+                                    <barButtonItem systemItem="rewind" id="Dot-K8-aS1">
+                                        <connections>
+                                            <action selector="goBack" destination="7vg-WO-dwV" id="XH2-iT-3XM"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="O0z-Vh-MO6"/>
+                                    <barButtonItem systemItem="fastForward" id="X6b-pN-ayI">
+                                        <connections>
+                                            <action selector="goForward" destination="7vg-WO-dwV" id="tdK-6P-9gw"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="nFH-2v-gte"/>
+                                    <barButtonItem systemItem="stop" id="E3s-np-jh2">
+                                        <connections>
+                                            <action selector="stopLoading" destination="7vg-WO-dwV" id="OzP-81-utw"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="SGZ-v6-RCj"/>
+                                    <barButtonItem systemItem="refresh" id="1pQ-Sd-ddz">
+                                        <connections>
+                                            <action selector="reload" destination="7vg-WO-dwV" id="oV9-Ax-HBA"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="64t-Nc-CRu"/>
+                                </items>
+                            </toolbar>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7vg-WO-dwV">
+                                <rect key="frame" x="0.0" y="88" width="375" height="535"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="hcg-25-F5G"/>
+                                </connections>
+                            </webView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="BhF-3a-sik">
+                                <rect key="frame" x="0.0" y="28" width="375" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="facebook"/>
+                                    <segment title="twitter"/>
+                                    <segment title="apple"/>
+                                    <segment title="google"/>
+                                </segments>
+                                <connections>
+                                    <action selector="bookMarkAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="fOm-ZP-jG0"/>
+                                </connections>
+                            </segmentedControl>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="chY-ch-4sC">
+                                <rect key="frame" x="169" y="170" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.33990550533825259" green="0.57259371860356478" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="bookMarkSegmentedControl" destination="BhF-3a-sik" id="zJV-q9-unU"/>
+                        <outlet property="mainWebView" destination="7vg-WO-dwV" id="vpm-hk-CfD"/>
+                        <outlet property="spinningActivityIndicatorView" destination="chY-ch-4sC" id="hjK-jG-aEw"/>
+                        <outlet property="urlTextField" destination="NkY-Vf-IrA" id="dZe-jd-y6t"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="124" y="117.39130434782609"/>
+        </scene>
+    </scenes>
+</document>
